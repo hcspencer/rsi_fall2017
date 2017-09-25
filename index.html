@@ -120,6 +120,30 @@ function getRegionalWeather(){
 		//create variables to use the data we have extracted
 		var location = withData['current_observation']['display_location']['full'];
   		var temp_f = withData['current_observation']['temp_f'];
+        
+        //test temp in order to determine "statement" about temp
+        
+        var tempStatement = "";
+        
+        function testTemp() {
+  if (temp_f >= 85.0) {
+       tempStatement = "  Get on the water";
+  }
+  
+  else if (temp_f >= 70.0) {
+      tempStatement = "  Awesome temperature, get outside!";
+  }
+  
+  else if (temp_f >= 60.0) {
+        tempStatement = "  Great Temp, to go Trout Fishing!";
+  }
+    else tempStatement = "  Stay inside and Code!!!!"  
+}
+    testTemp(temp_f);
+        console.log(temp_f);
+        console.log(tempStatement);
+        
+        
   		var weather = withData['current_observation']['weather'];
   		var wind = withData['current_observation']['wind_string'];
 		var image = withData['current_observation']['image']['url'];
@@ -131,7 +155,7 @@ function getRegionalWeather(){
 		
 		//set the value with data from our json object
 		buildHTML += "<td><b>" + location + "</b></td>";
-		buildHTML += "<td>" + temp_f + "</td>";
+        buildHTML += "<td>" + temp_f + "&#8457" + tempStatement + "</td>"; 
 		buildHTML += "<td><img src='" + icon + "'></td>";
 		buildHTML += "<td>" + weather + "</td>";
 		buildHTML += "<td>" + wind + "</td>";
@@ -160,6 +184,28 @@ function getNationalWeather(){
 		//create variables to use the data we have extracted
 		var location = withData['current_observation']['display_location']['full'];
   		var temp_f = withData['current_observation']['temp_f'];
+        
+         //test temp in order to determine "statement" about temp
+             var tempStatement = "";
+        
+        function testTemp() {
+  if (temp_f >= 85.0) {
+       tempStatement = "  Get on the water";
+  }
+  
+  else if (temp_f >= 70.0) {
+      tempStatement = "  Awesome temperature, get outside!";
+  }
+  
+  else if (temp_f >= 60.0) {
+        tempStatement = "  Great Temp, to go Trout Fishing!";
+  }
+    else tempStatement = "  Stay inside and Code!!!!"  
+}
+    testTemp(temp_f);
+        console.log(temp_f);
+        console.log(tempStatement);
+        
   		var weather = withData['current_observation']['weather'];
   		var wind = withData['current_observation']['wind_string'];
 		var image = withData['current_observation']['image']['url'];
@@ -171,7 +217,7 @@ function getNationalWeather(){
 		
 		//set the value with data from our json object
 		buildHTML += "<td><b>" + location + "</b></td>";
-		buildHTML += "<td>" + temp_f + "</td>";
+		buildHTML += "<td>" + temp_f + "&#8457" + tempStatement + "</td>";
 		buildHTML += "<td><img src='" + icon + "'></td>";
 		buildHTML += "<td>" + weather + "</td>";
 		buildHTML += "<td>" + wind + "</td>";
